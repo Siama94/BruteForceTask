@@ -1,7 +1,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var colorButton: UIButton!
+    
+    @IBOutlet weak var passwordButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var label: UILabel!
     
     var isBlack: Bool = false {
         didSet {
@@ -13,10 +18,12 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func onBut(_ sender: Any) {
+    @IBAction func changeColorButton(_ sender: Any) {
         isBlack.toggle()
     }
     
+    @IBAction func generateAndCrackingPassword(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

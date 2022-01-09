@@ -60,9 +60,9 @@
 				264DFEDF260D07EF0035EA15 /* SceneDelegate.swift */,
 				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
 				264DFEE3260D07EF0035EA15 /* Main.storyboard */,
-				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
 				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
 				264DFEEB260D07F00035EA15 /* Info.plist */,
+				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
 			);
 			path = Pr2503;
 			sourceTree = "<group>";
