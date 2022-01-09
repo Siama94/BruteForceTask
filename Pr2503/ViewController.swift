@@ -48,8 +48,7 @@ class ViewController: UIViewController {
 
         if isStartCracking {
             let concurrentQueue = DispatchQueue(label: "сoncurrentQueueForPassword",
-                                                qos: .default,
-                                                attributes: .concurrent)
+                                                qos: .default)
             concurrentQueue.async {
                 self.bruteForce(passwordToUnlock: self.password)
             }
@@ -122,7 +121,6 @@ class ViewController: UIViewController {
                 self.passwordTracking(password: password)
             }
         }
-        
         print("Пароль взломан: \(password)")
     }
 
@@ -139,7 +137,6 @@ class ViewController: UIViewController {
                 password = String(generateBruteForce(String(password.dropLast()), fromArray: array)) + String(password.last ?? "1")
             }
         }
-
         return password
     }
 
@@ -151,5 +148,4 @@ class ViewController: UIViewController {
         return index < array.count ? Character(array[index])
         : Character("")
     }
-
 }
