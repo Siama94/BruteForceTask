@@ -122,7 +122,6 @@ class ViewController: UIViewController {
                 self.passwordTracking(password: password)
             }
         }
-        
         print("Пароль взломан: \(password)")
     }
 
@@ -139,7 +138,6 @@ class ViewController: UIViewController {
                 password = String(generateBruteForce(String(password.dropLast()), fromArray: array)) + String(password.last ?? "1")
             }
         }
-
         return password
     }
 
@@ -151,5 +149,4 @@ class ViewController: UIViewController {
         return index < array.count ? Character(array[index])
         : Character("")
     }
-
 }
