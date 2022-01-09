@@ -48,8 +48,7 @@ class ViewController: UIViewController {
 
         if isStartCracking {
             let concurrentQueue = DispatchQueue(label: "сoncurrentQueueForPassword",
-                                                qos: .default,
-                                                attributes: .concurrent)
+                                                qos: .default)
             concurrentQueue.async {
                 self.bruteForce(passwordToUnlock: self.password)
             }
