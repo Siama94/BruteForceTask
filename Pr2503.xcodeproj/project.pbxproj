@@ -14,6 +14,7 @@
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
 		55B9C387278AA05700860FF8 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9C386278AA05700860FF8 /* ExtensionString.swift */; };
+		55B9C38F278E7B7A00860FF8 /* BruteForcePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B9C386278AA05700860FF8 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForcePassword.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				55B9C386278AA05700860FF8 /* ExtensionString.swift */,
 				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
+				55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */,
 			);
 			path = BruteForceModul;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			files = (
 				55B9C387278AA05700860FF8 /* ExtensionString.swift in Sources */,
 				264DFEE2260D07EF0035EA15 /* ViewController.swift in Sources */,
+				55B9C38F278E7B7A00860FF8 /* BruteForcePassword.swift in Sources */,
 				264DFEDE260D07EF0035EA15 /* AppDelegate.swift in Sources */,
 				264DFEE0260D07EF0035EA15 /* SceneDelegate.swift in Sources */,
 			);

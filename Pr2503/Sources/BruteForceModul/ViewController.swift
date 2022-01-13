@@ -10,11 +10,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
 
-    // MARK: - Properties
+    // MARK: - Pproperties
 
-    private var password = ""
-    private var isStartCracking = false
-    private var isCompletedCracking = false
+    private let queue = OperationQueue()
 
     private var isTealScreen: Bool = false {
         didSet {
@@ -38,27 +36,34 @@ class ViewController: UIViewController {
     @IBAction func changeColorButton(_ sender: Any) {
         isTealScreen.toggle()
     }
-    
+
     @IBAction func generateAndCrackingPassword(_ sender: Any) {
-        textField.text = "500" // для рандомной генирации: String.randomString()
-        password = textField.text ?? "000"
 
-        isStartCracking = true
-        correctionViews()
+        modeStartCracking()
 
-        if isStartCracking {
-            let concurrentQueue = DispatchQueue(label: "сoncurrentQueueForPassword",
-                                                qos: .default)
-            concurrentQueue.async {
-                self.bruteForce(passwordToUnlock: self.password)
+        let password = textField.text ?? "0000"
+        let splitedPassword = password.split()
+
+        var arrayBruteForcePassword = [BruteForcePassword]()
+
+        splitedPassword.forEach { i in
+            arrayBruteForcePassword.append(BruteForcePassword(password: i))
+        }
+
+        arrayBruteForcePassword.forEach { operation in
+            queue.addOperation(operation)
+        }
+
+        queue.addBarrierBlock { [unowned self] in
+            OperationQueue.main.addOperation {
+                self.modeCompletedCracking()
             }
         }
     }
 
     // MARK: - Mode functions
 
-    private func modeNotStartCracking() {
-        isCompletedCracking = false
+    func modeNotStartCracking() {
         label.text = "Нажите кнопку, чтобы сгенирировать и отгадать пароль"
         textField.placeholder = "Пароль"
         textField.isSecureTextEntry = true
@@ -67,85 +72,20 @@ class ViewController: UIViewController {
         activityIndicator.isHidden = true
     }
 
-    private func modeStartCracking() {
-        isCompletedCracking = false
+    func modeStartCracking() {
+        label.text = "Подбирается пароль..."
+        textField.text = String.random()
         passwordButton.isEnabled = false
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
     }
 
-    private func modeCompletedCracking() {
-        isCompletedCracking = true
-        isStartCracking = false
+    func modeCompletedCracking() {
+        label.text = "Пароль взломан: \n \(self.textField.text ?? "Error") \n Нажмите кнопку, чтобы попробовать еще раз"
+        textField.isSecureTextEntry = false
         passwordButton.isEnabled = true
         passwordButton.setTitle("Начать", for: .normal)
-        textField.isSecureTextEntry = false
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
-    }
-
-    // MARK: - Setup mode functions
-
-    private func correctionViews() {
-        if isStartCracking && !isCompletedCracking {
-            modeStartCracking()
-        } else {
-            modeNotStartCracking()
-        }
-    }
-
-    private func passwordTracking(password: String) {
-
-        if self.password == password {
-            label.text = "Пароль взломан: \(password) Нажмите кнопку, чтобы попробовать еще раз"
-            modeCompletedCracking()
-        }
-
-        if isStartCracking {
-            label.text = "Подбирается пароль: \n \(password)"
-            correctionViews()
-        }
-    }
-
-    // MARK: - Cracking password functions
-
-    func bruteForce(passwordToUnlock: String) {
-        let allowedCharacters: [String] = String().printable.map { String($0) }
-        var password: String = ""
-
-        while password != passwordToUnlock {
-            password = generateBruteForce(password, fromArray: allowedCharacters)
-            print(password)
-
-            DispatchQueue.main.async {
-                self.passwordTracking(password: password)
-            }
-        }
-        print("Пароль взломан: \(password)")
-    }
-
-    func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
-        var password = string
-
-        if password.count <= 0 {
-            password.append(characterAt(index: 0, array))
-        }
-        else {
-            password.replace(at: password.count - 1, with: characterAt(index: (indexOf(character: password.last ?? "1", array) + 1) % array.count, array))
-
-            if indexOf(character: password.last ?? "1", array) == 0 {
-                password = String(generateBruteForce(String(password.dropLast()), fromArray: array)) + String(password.last ?? "1")
-            }
-        }
-        return password
-    }
-
-    func indexOf(character: Character, _ array: [String]) -> Int {
-        return array.firstIndex(of: String(character)) ?? Int()
-    }
-
-    func characterAt(index: Int, _ array: [String]) -> Character {
-        return index < array.count ? Character(array[index])
-        : Character("")
     }
 }
