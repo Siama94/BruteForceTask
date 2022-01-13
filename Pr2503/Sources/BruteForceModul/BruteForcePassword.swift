@@ -82,5 +82,4 @@ class BruteForcePassword: Operation {
     func characterAt(index: Int, _ array: [String]) -> Character {
         return index < array.count ? Character(array[index]) : Character("")
     }
-    
 }
