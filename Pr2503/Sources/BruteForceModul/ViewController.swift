@@ -41,15 +41,20 @@ class ViewController: UIViewController {
 
         modeStartCracking()
 
+        // В переменную password передается  значение из textField
         let password = textField.text ?? "0000"
+
+        // Строка с паролем делится на массив из строк по 2 символа
         let splitedPassword = password.split()
 
         var arrayBruteForcePassword = [BruteForcePassword]()
 
+        // Каждая мини строка из массива отправляется в операцию
         splitedPassword.forEach { i in
             arrayBruteForcePassword.append(BruteForcePassword(password: i))
         }
 
+        // Каждая операция отправляется в очередь
         arrayBruteForcePassword.forEach { operation in
             queue.addOperation(operation)
         }
