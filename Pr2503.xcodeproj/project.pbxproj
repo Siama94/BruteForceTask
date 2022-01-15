@@ -13,6 +13,8 @@
 		264DFEE5260D07EF0035EA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE3260D07EF0035EA15 /* Main.storyboard */; };
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
+		55B9C387278AA05700860FF8 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9C386278AA05700860FF8 /* ExtensionString.swift */; };
+		55B9C38F278E7B7A00860FF8 /* BruteForcePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		264DFEE6260D07F00035EA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55B9C386278AA05700860FF8 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForcePassword.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,65 @@
 		264DFEDC260D07EF0035EA15 /* Pr2503 */ = {
 			isa = PBXGroup;
 			children = (
-				264DFEDD260D07EF0035EA15 /* AppDelegate.swift */,
-				264DFEDF260D07EF0035EA15 /* SceneDelegate.swift */,
-				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
-				264DFEE3260D07EF0035EA15 /* Main.storyboard */,
-				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
-				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
 				264DFEEB260D07F00035EA15 /* Info.plist */,
+				55B9C389278E749900860FF8 /* Sources */,
+				55B9C388278E748000860FF8 /* Resources */,
 			);
 			path = Pr2503;
+			sourceTree = "<group>";
+		};
+		55B9C388278E748000860FF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55B9C38B278E75CC00860FF8 /* Storyboards */,
+				55B9C38C278E75F500860FF8 /* Configs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55B9C389278E749900860FF8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				55B9C38D278E761C00860FF8 /* BruteForceModul */,
+				55B9C38A278E755D00860FF8 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		55B9C38A278E755D00860FF8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				264DFEDD260D07EF0035EA15 /* AppDelegate.swift */,
+				264DFEDF260D07EF0035EA15 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		55B9C38B278E75CC00860FF8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				264DFEE3260D07EF0035EA15 /* Main.storyboard */,
+				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		55B9C38C278E75F500860FF8 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		55B9C38D278E761C00860FF8 /* BruteForceModul */ = {
+			isa = PBXGroup;
+			children = (
+				55B9C386278AA05700860FF8 /* ExtensionString.swift */,
+				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
+				55B9C38E278E7B7A00860FF8 /* BruteForcePassword.swift */,
+			);
+			path = BruteForceModul;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B9C387278AA05700860FF8 /* ExtensionString.swift in Sources */,
 				264DFEE2260D07EF0035EA15 /* ViewController.swift in Sources */,
+				55B9C38F278E7B7A00860FF8 /* BruteForcePassword.swift in Sources */,
 				264DFEDE260D07EF0035EA15 /* AppDelegate.swift in Sources */,
 				264DFEE0260D07EF0035EA15 /* SceneDelegate.swift in Sources */,
 			);
